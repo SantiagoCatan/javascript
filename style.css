@@ -1,0 +1,25 @@
+
+body{
+    background-color: rgb(230, 196, 255);
+}
+
+img{
+    width: 30EM;
+    height: 30vh;
+    border: 0.5em double black;
+    }
+
+h{
+    font-size: 1em;
+}
+
+    .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        gap: 6em;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-.5 * var(--bs-gutter-x));
+        margin-left: calc(-.5 * var(--bs-gutter-x));
+    }
