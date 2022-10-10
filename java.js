@@ -33,45 +33,49 @@ class Botonhome {
         this.stock=3;
     }
 }
+
+class faceid{
+    constructor(repuesto,precio,stock) {
+        this.repuesto="Faceid";
+        this.precio=2000;
+        this.stock=3;
+    }
+}
 const pantalla= new Pantalla("repuesto","precio","stock");
 const bateria= new Bateria("repuesto","precio","stock");
 const carcasa= new Carcasa("repuesto","precio","stock");
 const botonhome= new Botonhome("repuesto","precio","stock");
+const faceid= new faceid("repuesto","precio","stock");
 
 let Iphone8=[];
 Iphone8.push (pantalla,bateria,carcasa,botonhome);
 
-//Recorre array establecido
 
-function porcadaelemento(Iphone8,funcion){
-    for (const elemento of Iphone8){
-        funcion (elemento);
-    }
-}
 
-//Se pidio al usuario un repuesto y muerta el stock que diponible y precio de cada respuesto
+//Se pidio al usuario un repuesto y muestra el stock que diponible y precio de cada respuesto
 
 
 let Respuesto=prompt("Ingrerse nombre del respuesto").toLowerCase();
+
 function repuestoIngresado (Respuesto){
 
     switch(Respuesto){
         case "pantalla":
             Iphone8.find(elemento => elemento.nombre = "pantalla");
-            alert(`Tenemos stock disponible ${pantalla.stock} de pantalla El total sale $${pantalla.precio}`);
+            alert(`Tenemos stock disponible ${pantalla.stock} de cada pantalla El total sale $${pantalla.precio}`);
              break;
 
         case "bateria":
             Iphone8.find(elemento => elemento.nombre = "bateria");
-            alert(`Tenemos stock disponible ${bateria.stock} de bateria El total sale $${bateria.precio}`);
+            alert(`Tenemos stock disponible ${bateria.stock} de cada bateria El total sale $${bateria.precio}`);
                 break;
         case "carcasa":
             Iphone8.find(elemento => elemento.nombre = "carcasa");
-            alert(`Tenemos stock disponible ${carcasa.stock} de carcasa El total sale $${carcasa.precio}`);
+            alert(`Tenemos stock disponible ${carcasa.stock} de cada carcasa El total sale $${carcasa.precio}`);
                  break;
         case "botohome":
             Iphone8.find(elemento => elemento.nombre = "botonhome");
-            alert(`Tenemos stock disponible ${botonhome.stock} de botonhome El total sale $${botonhome.precio}`);
+            alert(`Tenemos stock disponible ${botonhome.stock} de cada botonhome El total sale $${botonhome.precio}`);
                  break;
         default:
             alert("El respuesto ingresando es incorrecto");
@@ -98,7 +102,13 @@ repuestoIngresado(Respuesto);
 
 
 
+//Recorre array establecido
 
+// function porcadaelemento(Iphone8,funcion){
+//     for (const elemento of Iphone8){
+//         funcion (elemento);
+//     }
+// }
 
 
 
