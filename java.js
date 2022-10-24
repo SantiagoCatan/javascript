@@ -1,170 +1,174 @@
 
-/*Apretando el boton de agregar o eliminiar entra en una funcion o en otra , para realizar un total de cada respuesto que quiera comprar*/ 
+/*Apretando el boton de agregar o eliminiar entra en una funcion o en otra , para realizar un total de cada respuesto que quiera comprar*/
 
 
 /*constructores*/
 
 
 class Pantalla {
-    constructor(repuesto,precio,stock) {
-        this.repuesto="Pantalla";
-        this.precio=15000;
-        this.stock=20;
+    constructor(id, Pantalla, precio, stock) {
+        this.id = "item1";
+        this.pantalla = "Pantalla";
+        this.precio = precio;
+        this.stock = stock;
     }
 }
 class Bateria {
-    constructor(repuesto,precio,stock) {
-        this.repuesto="Bateria";
-        this.precio=5000;
-        this.stock=8;
+    constructor(id, Bateria, precio, stock) {
+        this.id = "item2";
+        this.bateria = "Bateria";
+        this.precio = precio;
+        this.stock = stock;
     }
 }
 class Carcasa {
-    constructor(repuesto,precio,stock) {
-        this.repuesto="Carcasa";
-        this.precio=12000;
-        this.stock=1;
+    constructor(id, Carcasa, precio, stock) {
+        this.id = "item3";
+        this.carcasa = "Carcasa";
+        this.precio = precio;
+        this.stock = stock;
     }
 }
 class Botonhome {
-    constructor(repuesto,precio,stock) {
-        this.repuesto="BotonHome";
-        this.precio=2000;
-        this.stock=3;
+    constructor(id, BotonHome, precio, stock) {
+        this.id = "item4";
+        this.botonHome = "BotonHome";
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
+class Faceid {
+    constructor(id, Faceid, precio, stock) {
+        this.id = "item5";
+        this.faceid = "Faceid";
+        this.precio = precio;
+        this.stock = stock;
     }
 }
 
-class faceid{
-    constructor(repuesto,precio,stock) {
-        this.repuesto="Faceid";
-        this.precio=2000;
-        this.stock=3;
+
+//obejetos y lista de productos
+const pantalla = new Pantalla("item1", "Pantalla", 15000, 20);
+const bateria = new Bateria("item2", "Bateria", 20000, 20);
+const carcasa = new Carcasa("item3", "Carcasa", 30000, 20);
+const botonhome = new Botonhome("item4", "BotonHome", 16000, 20);
+
+
+const Iphone8 = [
+    { id: "item1", pantalla: "pantalla", precio: 15000, stock: 20 },
+    { id: "item2", bateria: "bateria", precio: 10000, stock: 20 },
+    { id: "item3", carcasa: "carcasa", precio: 35000, stock: 20 },
+    { id: "item4", botonhome: "botonhome", precio: 5000, stock: 40 }
+]
+
+
+
+//const ListaDeEquipos=[Iphone8]
+
+//crear funcion para armar el total de todos los respuestos que quiera la persona
+//nueva array (que se puede agregar y eleminar),objeto nuevo
+
+let carritoIphone = []
+localStorage.setItem("carrito", carritoIphone);
+
+const botonesAzul = document.querySelectorAll(".btn-primary");
+const botonesRojos = document.querySelectorAll(".btn-danger");
+
+botonesAzul.forEach(boton => {
+    boton.addEventListener("click", agregarTotal)
+});
+
+function agregarTotal(e) {
+    let boton = e.target;
+    let padre = boton.parentElement;
+    let prodID = padre.getAttribute("id");
+
+    if (prodID == "item1") {
+        let agregar = Iphone8.find(elemento => elemento.id == "item1");
+        carritoIphone.push(agregar);
     }
-}
-const pantalla= new Pantalla("repuesto","precio","stock");
-const bateria= new Bateria("repuesto","precio","stock");
-const carcasa= new Carcasa("repuesto","precio","stock");
-const botonhome= new Botonhome("repuesto","precio","stock");
-const faceid= new faceid("repuesto","precio","stock");
-
-let Iphone8=[];
-Iphone8.push (pantalla,bateria,carcasa,botonhome);
-
-
-
-//Se pidio al usuario un repuesto y muestra el stock que diponible y precio de cada respuesto
-
-
-let Respuesto=prompt("Ingrerse nombre del respuesto").toLowerCase();
-
-function repuestoIngresado (Respuesto){
-
-    switch(Respuesto){
-        case "pantalla":
-            Iphone8.find(elemento => elemento.nombre = "pantalla");
-            alert(`Tenemos stock disponible ${pantalla.stock} de cada pantalla El total sale $${pantalla.precio}`);
-             break;
-
-        case "bateria":
-            Iphone8.find(elemento => elemento.nombre = "bateria");
-            alert(`Tenemos stock disponible ${bateria.stock} de cada bateria El total sale $${bateria.precio}`);
-                break;
-        case "carcasa":
-            Iphone8.find(elemento => elemento.nombre = "carcasa");
-            alert(`Tenemos stock disponible ${carcasa.stock} de cada carcasa El total sale $${carcasa.precio}`);
-                 break;
-        case "botohome":
-            Iphone8.find(elemento => elemento.nombre = "botonhome");
-            alert(`Tenemos stock disponible ${botonhome.stock} de cada botonhome El total sale $${botonhome.precio}`);
-                 break;
-        default:
-            alert("El respuesto ingresando es incorrecto");
+    if (prodID == "item2") {
+        let agregar = Iphone8.find(elemento => elemento.id == "item2");
+        carritoIphone.push(agregar);
     }
+    if (prodID == "item3") {
+        let agregar = Iphone8.find(elemento => elemento.id == "item3");
+        carritoIphone.push(agregar);
+    }
+    if (prodID == "item4") {
+        let agregar = Iphone8.find(elemento => elemento.id == "item4");
+        carritoIphone.push(agregar);
+    }
+    localStorage.setItem("carrito", carritoIphone);
+
+    CalcularTotal(carritoIphone)
 }
-repuestoIngresado(Respuesto);
 
 
 
+//eliminar obejeto
+
+botonesRojos.forEach(boton => {
+    boton.addEventListener("click", eliminarTotal)
+});
+
+function eliminarTotal(e) {
+    let boton = e.target;
+    let padre = boton.parentElement;
+    let prodID = padre.getAttribute("id");
+
+    if (prodID == "item1") {
+        carritoIphone = carritoIphone.filter(elemento => { return elemento.id !== "item1" })
+    }
+    if (prodID == "item2") {
+        carritoIphone = carritoIphone.filter(elemento => { return elemento.id !== "item2" })
+    }
+    if (prodID == "item3") {
+        carritoIphone = carritoIphone.filter(elemento => { return elemento.id !== "item3" })
+    }
+    if (prodID == "item4") {
+        carritoIphone = carritoIphone.filter(elemento => { return elemento.id !== "item4" })
+    }
+    CalcularTotal(carritoIphone)
+    localStorage.setItem("carrito", carritoIphone);
+}
+
+//Sumar al total
+function CalcularTotal(carritoIphone) {
+    total = 0
+    carritoIphone.forEach(e => {
+        total += e.precio;
+    })
+    document.getElementById("total").innerText = "Total= " + total
+    localStorage.setItem("total", total);
+}
 
 
 
+// function repuestoIngresado (){
 
+//     switch(prodID){
+//       case "pantalla":
+//            Iphone8.find(elemento => elemento.nombre = "pantalla");
+//             alert(`Tenemos stock disponible ${pantalla.stock} de cada pantalla El total sale $${pantalla.precio}`);
+//             break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-//Recorre array establecido
-
-// function porcadaelemento(Iphone8,funcion){
-//     for (const elemento of Iphone8){
-//         funcion (elemento);
+//       case "bateria":
+//          Iphone8.find(elemento => elemento.nombre = "bateria");
+//            alert(`Tenemos stock disponible ${bateria.stock} de cada bateria El total sale $${bateria.precio}`);
+//                break;
+//         case "carcasa":
+//            Iphone8.find(elemento => elemento.nombre = "carcasa");
+//             alert(`Tenemos stock disponible ${carcasa.stock} de cada carcasa El total sale $${carcasa.precio}`);
+//                   break;
+//          case "botohome":
+//             Iphone8.find(elemento => elemento.nombre = "botonhome");
+//              alert(`Tenemos stock disponible ${botonhome.stock} de cada botonhome El total sale $${botonhome.precio}`);
+//                  break;
+//          default:
+//             alert("El respuesto ingresando es incorrecto");
 //     }
 // }
 
 
 
-
-
-
-/*class  {
-    constructor(pantalla, bateria, carcasa, faceid) {
-        this.pantalla = pantalla;
-        this.bateria = bateria;
-        this.carcasa = carcasa;
-        this.faceid = faceid;
-    
-    }
-    sumaIva() {
-        this.precio=this.precio*1.21;
-    }
-    vender() {
-        this.vendido=true
-    }
-}*/
-
-/* Menu navegable , dando como opcion 1 como registro de nombre,apellido y dni*/
-
-/*let opcion ;
-do { 
-     console.log("1-Registrarse");
-    console.log("2-Iniciar Session");
-    console.log("0-salir"); 
-    opcion=parseInt(prompt("Ingrese opcion de menu")); 
-
-switch(opcion){
-    case 1:
-        let NombreCompleto=NombreComplet();
-        alert(NombreCompleto);
-    break;
-
-    case 2:
-
-    break;
-
-    case 0:
-
-     break;
-
-     default:
-        break;
-}
-}while(opcion != 0);
-function NombreComplet(){
-    let Nombre=prompt("Ingrese Nombre");
-    let Apellido=prompt("ingrese Apellido");
-    const Dni=parseInt(prompt("ingrese dni"));
-    let NombreCompleto=Nombre+ " "+Apellido +" "+Dni;
-    console.log("Registro exitoso");
-    return NombreCompleto;
-
-    }
-*/
