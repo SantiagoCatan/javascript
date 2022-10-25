@@ -114,7 +114,6 @@ export function iphone8() {
     });
     //Sumar al total
     function CalcularTotal(carritoIphone) {
-        // operacion ternaria
         let total = 0;
         carritoIphone.forEach(e => {
             total += e.precio;
