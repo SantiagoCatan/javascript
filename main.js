@@ -9,7 +9,13 @@ iphone8p()
 iphoneX()
 iphone11()
 
-
-
+// const buscador = document.querySelector(#);
+// const boton =document.querySelector(#);
     
+// const filter=()=>{
+//     console.log(hola);
+
+// }
+
+// boton.addEventListener("click",filtrar)
 

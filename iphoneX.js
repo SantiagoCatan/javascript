@@ -109,8 +109,8 @@ export function iphoneX() {
         carritoIphone.forEach(e => {
             total += e.precio;
         })
-        document.getElementById("total").innerText = "Total= " + total
-        localStorage.setItem("total", total);
+        document.getElementById("total3").innerText = "Total= " + total
+        localStorage.setItem("total3", total);
     }
     //Que aparezca en la pagina , el total o elimine el total 
     const botonesCompra = document.querySelectorAll("#CompraTodo3");
