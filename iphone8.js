@@ -1,4 +1,5 @@
-export function iphone8() {
+
+export async function iphone8(Iphone8) {
     // /*Apretando el boton de agregar o eliminiar entra en una funcion o en otra , para realizar un total de cada respuesto que quiera comprar*/
     /*constructores*/
     class Pantalla {
@@ -48,20 +49,8 @@ export function iphone8() {
     const botonhome = new Botonhome("item4", "BotonHome", 16000, 20);
     const faceid = new Faceid("item5", "Faceid", 11000, 40)
 
-    const Iphone8 = []
+   // const Iphone8 =await obtenerDatos();
 
-    //obtener array de json 
-
-    const obtenerDatos = async ()=>{
-        try{
-            let response =await fetch("./DatosJson.Json")
-            let result= await response.json();
-            push.Iphone8(result);
-            }
-        catch(error){
-        console.log(error)
-        }
-    }
 
     //crear funcion para armar el total de todos los respuestos que quiera la persona
     //nueva array (que se puede agregar y eleminar),objeto nuevo
@@ -71,7 +60,7 @@ export function iphone8() {
     const botonesRojos = document.querySelectorAll(".btn-danger");
 
     botonesAzul.forEach(boton => {
-        boton.addEventListener("click", (e) => {
+        boton.addEventListener("click", async (e) => {
             let boton = e.target;
             let padre = boton.parentElement;
             let prodID = padre.getAttribute("id");

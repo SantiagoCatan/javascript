@@ -1,4 +1,4 @@
-export function iphone11() {
+export function iphone11(iphone11) {
     // /*Apretando el boton de agregar o eliminiar entra en una funcion o en otra , para realizar un total de cada respuesto que quiera comprar*/
     /*constructores*/
     class Pantalla {
@@ -33,18 +33,18 @@ export function iphone11() {
             this.stock = stock;
         }
     }
-    //obejetos y lista de productos
-    const pantalla = new Pantalla("item13", "Pantalla", 15000, 20);
-    const bateria = new Bateria("item14", "Bateria", 20000, 20);
-    const carcasa = new Carcasa("item15", "Carcasa", 30000, 20);
-    const faceid = new Faceid("item16", "Faceid", 11000, 40)
+    // //obejetos y lista de productos
+    // const pantalla = new Pantalla("item13", "Pantalla", 15000, 20);
+    // const bateria = new Bateria("item14", "Bateria", 20000, 20);
+    // const carcasa = new Carcasa("item15", "Carcasa", 30000, 20);
+    // const faceid = new Faceid("item16", "Faceid", 11000, 40)
 
-    const iphone11 = [
-        { id: "item13", pantalla: "pantalla", precio: 15000, stock: 20 },
-        { id: "item14", bateria: "bateria", precio: 10000, stock: 20 },
-        { id: "item15", carcasa: "carcasa", precio: 35000, stock: 20 },
-        { id: "item16", botonhome: "botonhome", precio: 5000, stock: 40 }
-    ]
+    // const iphone11 = [
+    //     { id: "item13", pantalla: "pantalla", precio: 15000, stock: 20 },
+    //     { id: "item14", bateria: "bateria", precio: 10000, stock: 20 },
+    //     { id: "item15", carcasa: "carcasa", precio: 35000, stock: 20 },
+    //     { id: "item16", botonhome: "botonhome", precio: 5000, stock: 40 }
+    // ]
 
     //crear funcion para armar el total de todos los respuestos que quiera la persona
     //nueva array (que se puede agregar y eleminar),objeto nuevo
@@ -119,7 +119,7 @@ export function iphone11() {
         boton.addEventListener("click", ComprarFinal)
     });
     function ComprarFinal(e) {
-        let total = Number(localStorage.getItem("total"));
+        let total = Number(localStorage.getItem("total4"));
         console.log(total);
         if (total > 0) {
             Swal.fire(`Gracias por tu comprar el total a bonar es $${total}`)

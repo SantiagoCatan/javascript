@@ -1,4 +1,4 @@
-export function iphone8p() {
+export function iphone8p(iphone8p) {
     // /*Apretando el boton de agregar o eliminiar entra en una funcion o en otra , para realizar un total de cada respuesto que quiera comprar*/
     /*constructores*/
     class Pantalla {
@@ -40,13 +40,6 @@ export function iphone8p() {
     const carcasa = new Carcasa("item7", "Carcasa", 30000, 20);
     const botonhome = new Botonhome("item8", "BotonHome", 16000, 20);
 
-
-    const iphone8p = [
-        { id: "item5", pantalla: "pantalla", precio: 15000, stock: 20 },
-        { id: "item6", bateria: "bateria", precio: 10000, stock: 20 },
-        { id: "item7", carcasa: "carcasa", precio: 35000, stock: 20 },
-        { id: "item8", botonhome: "botonhome", precio: 5000, stock: 40 }
-    ]
 
     //crear funcion para armar el total de todos los respuestos que quiera la persona
     //nueva array (que se puede agregar y eleminar),objeto nuevo
@@ -121,7 +114,7 @@ export function iphone8p() {
         boton.addEventListener("click", ComprarFinal)
     });
     function ComprarFinal(e) {
-        let total = Number(localStorage.getItem("total"));
+        let total = Number(localStorage.getItem("total2"));
         console.log(total);
         if (total > 0) {
             Swal.fire(`Gracias por tu comprar el total a bonar es $${total}`)
