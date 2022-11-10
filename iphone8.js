@@ -48,12 +48,20 @@ export function iphone8() {
     const botonhome = new Botonhome("item4", "BotonHome", 16000, 20);
     const faceid = new Faceid("item5", "Faceid", 11000, 40)
 
-    const Iphone8 = [
-        { id: "item1", pantalla: "pantalla", precio: 15000, stock: 20 },
-        { id: "item2", bateria: "bateria", precio: 10000, stock: 20 },
-        { id: "item3", carcasa: "carcasa", precio: 35000, stock: 20 },
-        { id: "item4", botonhome: "botonhome", precio: 5000, stock: 40 }
-    ]
+    const Iphone8 = []
+
+    //obtener array de json 
+
+    const obtenerDatos = async ()=>{
+        try{
+            let response =await fetch("./DatosJson.Json")
+            let result= await response.json();
+            push.Iphone8(result);
+            }
+        catch(error){
+        console.log(error)
+        }
+    }
 
     //crear funcion para armar el total de todos los respuestos que quiera la persona
     //nueva array (que se puede agregar y eleminar),objeto nuevo
@@ -61,7 +69,6 @@ export function iphone8() {
     localStorage.setItem("carrito", carritoIphone);
     const botonesAzul = document.querySelectorAll(".btn-primary");
     const botonesRojos = document.querySelectorAll(".btn-danger");
-
 
     botonesAzul.forEach(boton => {
         boton.addEventListener("click", (e) => {

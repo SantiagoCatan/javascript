@@ -3,26 +3,17 @@
     { "id": "item1", "pantalla": "pantalla", "precio": 15000, "stock": 20 },
     { "id": "item2", "bateria": "bateria", "precio": 10000, "stock": 20 },
     { "id": "item3", "carcasa": "carcasa", "precio": 35000, "stock": 20 },
-    { "id": "item4", "botonhome": "botonhome", "precio": 5000, "stock": 40 }
-]
-[
+    { "id": "item4", "botonhome": "botonhome", "precio": 5000, "stock": 40 },
     { "id": "item5", "pantalla": "pantalla", "precio": 15000, "stock": 20 },
     { "id": "item6", "bateria": "bateria", "precio": 10000, "stock": 20 },
     { "id": "item7", "carcasa": "carcasa", "precio": 35000, "stock": 20 },
-    { "id": "item8", "botonhome": "botonhome", "precio": 5000, "stock": 40 }
-]
-
-[
+    { "id": "item8", "botonhome": "botonhome", "precio": 5000, "stock": 40 },
     { "id": "item9", "pantalla": "pantalla", "precio": 15000, "stock": 20 },
     { "id": "item10", "bateria": "bateria", "precio": 10000, "stock": 20 },
     { "id": "item11", "carcasa": "carcasa", "precio": 35000, "stock": 20 },
-    { "id": "item12", "botonhome": "botonhome", "precio": 5000, "stock": 40 }
-]
-
-[
+    { "id": "item12", "botonhome": "botonhome", "precio": 5000, "stock": 40 },
     { "id": "item13", "pantalla": "pantalla", "precio": 15000, "stock": 20 },
     { "id": "item14", "bateria": "bateria", "precio": 10000, "stock": 20 },
     { "id": "item15", "carcasa": "carcasa", "precio": 35000, "stock": 20 },
     { "id": "item16", "botonhome": "botonhome", "precio": 5000, "stock": 40 }
 ]
-
